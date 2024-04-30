@@ -1,0 +1,13 @@
+<h1>Login user</h1>
+
+<form action="/api/session/login" method="post">
+    <label for="">Email: </label> <input type="email" name="email" id="emailInput" /> <br /> <br /> 
+    <label for="">Password: </label> <input type="password" name="password" id="passwordInput"> <br /> <br />
+    <button type="submit"> Iniciar sesion</button>
+    <label>No tienes cuenta?</label><button type="button"><a href="/register">Registrate</a></button>
+    <button type="button" id="restoreBtn">Restaurar contraseña</button>
+</form>
+
+<h5 id="resultMessage"></h5>
+
+<script src="js/login.js"></script>

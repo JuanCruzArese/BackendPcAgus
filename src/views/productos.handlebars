@@ -1,0 +1,22 @@
+<h1>Productos</h1>
+
+<h2>Bienvenido {{user.first_name}}, {{user.last_name}} </h2>
+
+{{#each payload}}
+    <p> + Titulo: {{this.title}}, descripcion: {{this.description}}, precio: {{this.price}}. Esta disponible: {{this.available}} </p>
+    <button id="{{this._id}}">Agregar al carrito</button>
+{{/each}}
+<br>
+<br>
+<br>
+<label for="carrito">Introducir el Id del carrito al que desea agregar los productos:</label>
+<input id="idCarrito" type="text">
+{{#if hasPrevPage}}
+    <button><a href="/products?page={{prevPage}}">Anterior</a></button>
+{{/if}}
+
+{{#if hasNextPage}}
+    <button><a href="/products?page={{nextPage}}">Siguiente</a></button>
+{{/if}}
+
+<script src="js/productos.js"></script>

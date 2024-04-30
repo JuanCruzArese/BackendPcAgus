@@ -1,0 +1,63 @@
+<h1>Lista en tiempo real</h1>
+
+<div id="listaDeProductos">
+</div>
+
+<div>
+    <div>
+        <div>
+            <h2>Formulario para agregar producto</h2>
+            <form id="agregarProducto">
+                <label for="titleAG">Nombre</label>
+                <input type="text" id="titleAG" name="title">
+                <label for="descriptionAG">Descripcion</label>
+                <input type="text" id="descriptionAG" name="description">
+                <label for="codeAG">Code</label>
+                <input type="number" id="codeAG" name="code">
+                <label for="stockAG">Stock</label>
+                <input type="number" id="stockAG" name="stock">
+                <label for="thumbnailAG">thumbnail</label>
+                <input type="text" id="thumbnailAG" name="thumbnail">
+                <label for="priceAG">price</label>
+                <input type="number" id="priceAG" name="price">
+                <label for="availableAG">Available</label>
+                <input type="checkbox" id="availableAG" name="available">
+                <button type="submit">Agregar producto</button>
+            </form>
+        </div>
+       <div>
+            <h2>Formulario para eliminar un producto</h2>
+            <form id="eliminarProducto">
+                <label for="idDelete">Id del producto a eliminar:</label>
+                <input type="string" id="idDelete" name="id">
+                <button type="submit">Eliminar producto</button>
+            </form>
+        </div>
+        <div>
+            <h2>Formulario para editar producto</h2>
+            <form id="editarProducto">
+                <label for="idPut">ID del producto a editar:</label>
+                <input type="string" id="idPut" name="idPut">
+                <label for="titleED">Nombre</label>
+                <input type="text" id="titleED" name="title">
+                <label for="descriptionED">Descripcion</label>
+                <input type="text" id="descriptionED" name="description">
+                <label for="codeED">Code</label>
+                <input type="number" id="codeED" name="code">
+                <label for="stockED">Stock</label>
+                <input type="number" id="stockED" name="stock">
+                <label for="thumbnailED">thumbnail</label>
+                <input type="text" id="thumbnailED" name="thumbnail">
+                <label for="priceED">price</label>
+                <input type="number" id="priceED" name="price">
+                <label for="availableED">Available (completar cada vez que se edite un producto)</label>
+                <input type="checkbox" id="availableED" name="available">
+                <button type="submit">Editar producto</button>
+             </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/realTimeProducts.js"></script>
