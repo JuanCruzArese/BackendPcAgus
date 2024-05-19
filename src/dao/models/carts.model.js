@@ -16,12 +16,12 @@ const productsSchema = mongoose.Schema({
 }, { _id : false })
 
 const cartSchema = mongoose.Schema({
-    code: {
-        type: Number,
-        require: true,
-        unique: true,
-    },
-    productos: [productsSchema]
+
+    productos: { 
+       type: [productsSchema],
+       default: []
+
+    }
 })
 
-export const cartModel = mongoose.model(cartsCollection, cartSchema)
+export const cartModel = mongoose.model(cartsCollection, cartSchema);

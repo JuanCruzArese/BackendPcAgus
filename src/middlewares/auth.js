@@ -29,6 +29,15 @@ export const checkLogin = async (req, res, next) => {
     }
 }
 
+export const authorization = (role) => {
+    return async (req, res, next) => {
+      if(req.session?.user?.rol !== role){
+        return res.status(403).send({error: 'No permissions'});
+      }
+      next();
+    }
+  }
+
 /*
 export const checkAuth = (req, res, next) => {
     if(!req.session.user){

@@ -1,9 +1,20 @@
 import { Router } from "express";
 import { cartModel } from "../dao/models/carts.model.js";
 import mongoose from "mongoose";
+import { addProductsToCart, createCart, deleteProductOfCart, emptyCart, generateTicket, getCartByID, getCarts, getProductsOfCartByID } from "../dao/controllers/cart.controller.js";
 
 const cartDBroutes = Router();
 
+cartDBroutes.get("/", getCarts);
+cartDBroutes.get("/:cId", getCartByID);
+cartDBroutes.get("/:cId/products", getProductsOfCartByID);
+cartDBroutes.put("/:cId/products/:pId", addProductsToCart);
+cartDBroutes.post("/", createCart);
+cartDBroutes.put("/:cId", emptyCart);
+cartDBroutes.delete("/:cId/products/:pId", deleteProductOfCart)
+cartDBroutes.post("/:cId", generateTicket);
+
+/*
 cartDBroutes.get("/", async (req, res) => {
     try {
         const carts = await cartModel.find();
@@ -25,7 +36,7 @@ cartDBroutes.get("/:cId", async (req, res) => {
     }
 });
 
-/*
+
 cartDBroutes.delete("/:cId", async (req, res) =>{
     const { cId } = req.params;
     try {
@@ -36,7 +47,7 @@ cartDBroutes.delete("/:cId", async (req, res) =>{
         res.status(400).json({message:"Error al eliminar el carrito"})
     }
 });
-*/
+
 
 cartDBroutes.delete("/:cId/producto/:pId", async (req, res) => {
     const { cId, pId } = req.params;
@@ -116,6 +127,6 @@ cartDBroutes.delete("/:cId", async (req, res) =>{
     }
 });
 
-
+*/
 
 export default cartDBroutes;

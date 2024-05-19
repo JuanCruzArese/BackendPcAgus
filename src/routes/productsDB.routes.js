@@ -1,8 +1,15 @@
 import { Router } from "express";
 import { productModel } from "../dao/models/products.model.js";
+import { addProduct, deleteProduct, getProductByID, getProducts, updateProduct } from "../dao/controllers/product.controller.js";
 
 const productsDBroutes = Router();
 
+productsDBroutes.get("/", getProducts);
+productsDBroutes.get("/:pId", getProductByID);
+productsDBroutes.post("/", addProduct);
+productsDBroutes.put("/", updateProduct);
+productsDBroutes.delete("/pId", deleteProduct);
+/*
 productsDBroutes.get("/", async (req, res) =>{
     try {
         const { limit = 10, page = 1, query = "", sort = "" } = req.query;
@@ -59,5 +66,5 @@ productsDBroutes.put("/:pId", async (req, res) =>{
         res.status(400).json({ mensaje: "Error al actualizar el producto" });
     }
 })
-
+*/
 export default productsDBroutes
